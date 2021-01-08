@@ -9,16 +9,14 @@ public class EnemySpawner : MonoBehaviour
     private float _spawnSecondsCount = 0;
     private int _numberOfCurrentSpawnPoint = 0;
     private SpawnPoint[] _spawnPoints;
-    private Transform _enemySpawner;
 
     private void Start()
     {
-        _enemySpawner = GetComponent<Transform>();
-        _spawnPoints = new SpawnPoint[_enemySpawner.childCount];
+        _spawnPoints = new SpawnPoint[transform.childCount];
 
-        for (int i = 0; i < _enemySpawner.childCount; i++)
+        for (int i = 0; i < transform.childCount; i++)
         {
-            _spawnPoints[i] = _enemySpawner.GetChild(i).GetComponent<SpawnPoint>();
+            _spawnPoints[i] = transform.GetChild(i).GetComponent<SpawnPoint>();
         }
     }
 
